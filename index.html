@@ -464,7 +464,7 @@
 
 /* Title: harusnya "Nothing" gak mungkin kepotong lagi */
 #p2 .t1{
-  font-size: 13px;
+  font-size: 9.5px;
   font-weight: 800;
   color: rgba(0,0,0,.75);
   line-height: 1.1;
@@ -476,7 +476,7 @@
 /* Singer: 1 baris, no ellipsis */
 #p2 .t2{
   margin-top: 6px;
-  font-size: 12px;
+  font-size: 9.1px;
   font-weight: 700;
   color: rgba(0,0,0,.55);
   opacity: .85;
@@ -795,15 +795,28 @@
 }
 
 /* note selalu di bawah foto */
+/* NOTE: kunci tinggi teks biar layout stabil */
 #p4 .note{
-  font-weight:800;
+  width: 100%;
+  text-align: center;
+  padding: 0 10px;
+
+  /* Batasi jadi 3 baris */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+
+  overflow: hidden;
+
+  /* penting: bikin tinggi selalu sama (line-height * 3) */
+  line-height: 1.25;
+  height: calc(1.25em * 3);   /* “slot” 3 baris */
+  overflow-y: auto;           /* kalau lebih dari 3 baris, scroll */
+  min-height: calc(1.25em * 3);
+
+  font-weight: 800;
   color: rgba(0,0,0,.62);
   font-size: 14px;
-  text-align:center;
-  padding: 0 10px;
-  margin: 0;               /* reset margin */
-  width: 100%;
-  flex: 0 0 auto;
 }
 
 /* controls fix: selalu paling bawah dan gak niban */
